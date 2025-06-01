@@ -1,0 +1,19 @@
+indent-width = 2
+line-length = 120
+fix = true
+respect-gitignore = true
+
+[format]
+docstring-code-format = true
+docstring-code-line-length = 90
+indent-style = "space"
+
+[lint.flake8-implicit-str-concat]
+allow-multiline = true
+
+[lint.isort]
+order-by-type = true
+
+[lint]
+ignore = ["E701"]
+extend-select = ["E", "F"]
