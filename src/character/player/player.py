@@ -1,3 +1,6 @@
+import pygame
+
+
 class Player:
   def __init__(self, name: str, level: int = 1):
     self.name = name
@@ -5,6 +8,16 @@ class Player:
     self.health = 100
     self.mana = 50
     self.experience = 0
+
+  def jump(self):
+    pass
+
+  def draw(self):
+    pygame.draw.rect(
+      pygame.display.get_surface(),
+      pygame.Color("blue"),
+      (100, 100, 50, 50),  # Example position and size
+    )
 
   def level_up(self):
     self.level += 1
