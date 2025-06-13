@@ -10,7 +10,8 @@ game_controller = Game_controller()
 
 while game_controller.running:
   game_controller.start()
-  pygame.display.flip()
+  # pygame.display.flip()
+  pygame.display.update()
   clock.tick(60)
 
 pygame.quit()

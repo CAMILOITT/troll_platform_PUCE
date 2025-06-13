@@ -27,7 +27,6 @@ htmlcov/
 pytest_cache/
 
 # Archivos de entorno de IDEs/editors
-.vscode/
 .idea/
 *.swp
 

@@ -1,13 +1,42 @@
 import pygame
 
 
-class Player:
+class Player(pygame.sprite.Sprite):
+  x: int = 0
+  y: int = 0
+  name: str
+  level: int
+  health: int
+  mana: int
+  experience: int
+
   def __init__(self, name: str, level: int = 1):
+    super().__init__()
+    # self.image = pygame.Surface((50, 50))  # Reemplaza con tu sprite real
+    # self.image.fill((255, 0, 0))  # Color de prueba
+    self.image = pygame.image.load("src/character/player/assets/player_walk.png").convert_alpha()
+
+    # Posición
+    self.rect = self.image.get_rect(
+      topleft=(self.x, self.y),
+    )
+
     self.name = name
     self.level = level
     self.health = 100
     self.mana = 50
     self.experience = 0
+
+  def update(self):
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LEFT]:
+      self.x -= 5  # Move left
+    if keys[pygame.K_RIGHT]:
+      self.x += 5
+
+    if keys[pygame.K_SPACE]:
+      self.jump()
+    self.rect.x = self.x
 
   def jump(self):
     pass
@@ -16,7 +45,7 @@ class Player:
     pygame.draw.rect(
       pygame.display.get_surface(),
       pygame.Color("blue"),
-      (100, 100, 50, 50),  # Example position and size
+      (self.x, self.y, 50, 50),  # Example position and size
     )
 
   def level_up(self):
