@@ -15,8 +15,9 @@ class Player(pygame.sprite.Sprite):
     # self.image = pygame.Surface((50, 50))  # Reemplaza con tu sprite real
     # self.image.fill((255, 0, 0))  # Color de prueba
     self.image = pygame.image.load("src/character/player/assets/player_walk.png").convert_alpha()
-
-    # Posición
+    # self.image = pygame.transform.scale(self.image, (50, 50))  # Ajusta el tamaño del sprite
+    # self.image.blit(self.image, (0, 0), (50, 50))  # Blit the image onto itself to ensure it's ready for use
+    self.image
     self.rect = self.image.get_rect(
       topleft=(self.x, self.y),
     )
@@ -33,7 +34,6 @@ class Player(pygame.sprite.Sprite):
       self.x -= 5  # Move left
     if keys[pygame.K_RIGHT]:
       self.x += 5
-
     if keys[pygame.K_SPACE]:
       self.jump()
     self.rect.x = self.x
